@@ -3,7 +3,7 @@
     <h1>News from around the world!</h1>
     <ul>
       <li v-for="country in countries" :key="country.code">
-        <button>
+        <button @click="handleCountryClick(country.code)">
           {{ country.label }}
         </button>
       </li>
@@ -34,6 +34,16 @@ const countries = [
     code: "in",
   },
 ];
+
+const data = ref<TopHeadlinesResponse | null>(null);
+
+const handleCountryClick = async (code: string) => {
+  data.value = await $fetch("/api/fetchTopHeadlines", {
+    query: {
+      country: code,
+    },
+  });
+};
 </script>
 
 <style></style>
