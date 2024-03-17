@@ -8,6 +8,12 @@
         </button>
       </li>
     </ul>
+    <section>
+      <HeadlinesListItem
+        v-for="article in data?.articles"
+        :article="article"
+      ></HeadlinesListItem>
+    </section>
   </main>
 </template>
 
