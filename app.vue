@@ -3,7 +3,10 @@
     <h1>News from around the world!</h1>
     <ul class="country-list">
       <li v-for="country in countries" :key="country.code">
-        <VButton @click="handleCountryClick(country.code)">
+        <VButton
+          @click="handleCountryClick(country.code)"
+          :selected="country.code === selectedCountryCode"
+        >
           {{ country.label }}
         </VButton>
       </li>
@@ -50,6 +53,8 @@ const countries = [
 const isLoading = ref(false);
 const data = ref<TopHeadlinesData | null>(null);
 const error = ref<string | null>(null);
+
+const selectedCountryCode = ref("");
 
 const handleCountryClick = async (code: string) => {
   isLoading.value = true;

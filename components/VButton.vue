@@ -1,10 +1,12 @@
 <template>
-  <button>
+  <button :class="props.selected && 'selected'">
     <slot></slot>
   </button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{ selected: boolean }>();
+</script>
 
 <style scoped>
 button {
@@ -14,7 +16,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+button.selected {
   background-color: #000;
   color: #fff;
 }
