@@ -93,4 +93,16 @@ button:hover {
   gap: 1rem;
   margin-top: 2rem;
 }
+
+.headline-list {
+  margin-top: 2rem;
+
+  li {
+    display: block;
+  }
+
+  li + li {
+    border-top: 1px #666 solid;
+  }
+}
 </style>
