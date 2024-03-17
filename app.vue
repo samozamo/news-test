@@ -17,7 +17,7 @@
     </div>
     <ul v-else class="headline-list">
       <li v-for="article in data?.articles">
-        <HeadlinesListItem :article="article"></HeadlinesListItem>
+        <VHeadlinesListItem :article="article"></VHeadlinesListItem>
       </li>
     </ul>
   </main>
