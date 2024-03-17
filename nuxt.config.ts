@@ -4,4 +4,5 @@ export default defineNuxtConfig({
     apiToken: "",
   },
   devtools: { enabled: true },
+  css: ["~/assets/css/reset.css"],
 });
