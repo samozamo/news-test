@@ -26,7 +26,7 @@ a:hover .headline__title {
 
 .headline {
   line-height: 1.5;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .headline__title {
@@ -34,6 +34,7 @@ a:hover .headline__title {
 }
 
 .headline__detail-group {
+  margin-top: 0.25rem;
   font-size: 0.75rem;
 }
 </style>
