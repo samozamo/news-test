@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="page-wrapper">
     <h1>News from around the world!</h1>
     <ul>
       <li v-for="country in countries" :key="country.code">
@@ -52,4 +52,21 @@ const handleCountryClick = async (code: string) => {
 };
 </script>
 
-<style></style>
+<style>
+.page-wrapper {
+  margin: auto;
+  padding-inline: 0.5rem;
+}
+
+@media screen and (min-width: 25rem) {
+  .page-wrapper {
+    padding-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 40rem) {
+  .page-wrapper {
+    max-width: 40rem;
+  }
+}
+</style>
