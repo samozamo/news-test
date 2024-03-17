@@ -8,7 +8,14 @@
         </button>
       </li>
     </ul>
-    <ul class="headline-list">
+    <div class="user-info" v-if="isLoading">
+      <p>Loading some exciting news!</p>
+    </div>
+    <div class="user-info" v-else-if="data === null">
+      <p>Please choose a country.</p>
+      <p v-if="error" class="user-info__error">{{ error }}</p>
+    </div>
+    <ul v-else class="headline-list">
       <li v-for="article in data?.articles">
         <HeadlinesListItem :article="article"></HeadlinesListItem>
       </li>
@@ -17,6 +24,16 @@
 </template>
 
 <script setup lang="ts">
+type HeadlineResponse =
+  | {
+      success: true;
+      data: TopHeadlinesResponse;
+    }
+  | {
+      success: false;
+      message: string;
+    };
+
 const countries = [
   {
     label: "US",
@@ -40,14 +57,29 @@ const countries = [
   },
 ];
 
+const isLoading = ref(false);
 const data = ref<TopHeadlinesResponse | null>(null);
+const error = ref<string | null>(null);
 
 const handleCountryClick = async (code: string) => {
-  data.value = await $fetch("/api/fetchTopHeadlines", {
+  isLoading.value = true;
+
+  data.value = null;
+  error.value = null;
+
+  const response = await $fetch<HeadlineResponse>("/api/fetchTopHeadlines", {
     query: {
       country: code,
     },
   });
+
+  if (response.success === false) {
+    error.value = response.message;
+  } else {
+    data.value = response.data;
+  }
+
+  isLoading.value = false;
 };
 </script>
 
@@ -104,5 +136,15 @@ button:hover {
   li + li {
     border-top: 1px #666 solid;
   }
+}
+
+.user-info {
+  text-align: center;
+  margin: 3rem;
+}
+
+.user-info__error {
+  color: #f00;
+  margin-top: 1rem;
 }
 </style>
