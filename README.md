@@ -2,6 +2,8 @@
 
 Node version: 20.11.1
 
+The api used is [newsapi](https://newsapi.org/). Please go there to generate an api token for your `.env` file. Then copy the `.env.example` file and replace the dummy token with your own.
+
 I've left the Nuxt starter readme in here for any scripts you might need below.
 
 I've gone for a very minimal design for this project, with only a few styles used, but enough for it to not look horrendous (I think).
