@@ -68,4 +68,11 @@ const handleCountryClick = async (code: string) => {
     max-width: 40rem;
   }
 }
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-block: 4rem;
+}
+
 </style>
