@@ -57,7 +57,10 @@ const error = ref<string | null>(null);
 const selectedCountryCode = ref("");
 
 const handleCountryClick = async (code: string) => {
+  if (code === selectedCountryCode.value) return;
+
   isLoading.value = true;
+  selectedCountryCode.value = code;
 
   data.value = null;
   error.value = null;
