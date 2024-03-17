@@ -16,3 +16,13 @@ interface Source {
   id?: string;
   name: string;
 }
+
+type HeadlineResponse =
+  | {
+      success: true;
+      data: TopHeadlinesResponse;
+    }
+  | {
+      success: false;
+      message: string;
+    };

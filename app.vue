@@ -24,16 +24,6 @@
 </template>
 
 <script setup lang="ts">
-type HeadlineResponse =
-  | {
-      success: true;
-      data: TopHeadlinesResponse;
-    }
-  | {
-      success: false;
-      message: string;
-    };
-
 const countries = [
   {
     label: "US",
