@@ -1,7 +1,7 @@
 <template>
   <main class="page-wrapper">
     <h1>News from around the world!</h1>
-    <ul>
+    <ul class="country-list">
       <li v-for="country in countries" :key="country.code">
         <button @click="handleCountryClick(country.code)">
           {{ country.label }}
@@ -87,4 +87,10 @@ button:hover {
   color: #fff;
 }
 
+.country-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 </style>
