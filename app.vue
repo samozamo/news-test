@@ -1,6 +1,11 @@
 <template>
   <main class="page-wrapper">
+    <!-- Site Title -->
+
     <h1>News from around the world!</h1>
+
+    <!-- Country list -->
+
     <ul class="country-list">
       <li v-for="country in countries" :key="country.code">
         <VButton
@@ -11,18 +16,25 @@
         </VButton>
       </li>
     </ul>
+
+    <!-- Main content -->
+
     <div class="user-info" v-if="isLoading">
       <p>Loading some exciting news!</p>
     </div>
+
     <div class="user-info" v-else-if="data === null">
       <p>Please choose a country.</p>
       <p v-if="error" class="user-info__error">{{ error }}</p>
     </div>
+
     <ul v-else class="headline-list">
       <li v-for="article in data?.articles">
         <VHeadlinesListItem :article="article"></VHeadlinesListItem>
       </li>
     </ul>
+
+    <!-- End -->
   </main>
 </template>
 
