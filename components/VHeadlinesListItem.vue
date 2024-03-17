@@ -1,10 +1,14 @@
 <template>
   <article class="headline">
     <a :href="props.article.url">
-      <h4 class="headline__title">{{ props.article.title }}</h4>
+      <h4 class="headline__title">{{ cleanString(props.article.title) }}</h4>
       <div class="headline__detail-group">
-        <p class="headline__author">Author: {{ props.article.author }}</p>
-        <p class="headline__source">Source: {{ props.article.source.name }}</p>
+        <p class="headline__author">
+          Author: {{ cleanString(props.article.author) }}
+        </p>
+        <p class="headline__source">
+          Source: {{ cleanString(props.article.source.name) }}
+        </p>
       </div>
     </a>
   </article>
@@ -12,6 +16,10 @@
 
 <script setup lang="ts">
 const props = defineProps<{ article: Article }>();
+
+function cleanString(str: string | undefined) {
+  return str && str.replace(/<\/?[^>]+(>|$)/g, "");
+}
 </script>
 
 <style scoped>
