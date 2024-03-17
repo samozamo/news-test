@@ -3,9 +3,9 @@
     <h1>News from around the world!</h1>
     <ul class="country-list">
       <li v-for="country in countries" :key="country.code">
-        <button @click="handleCountryClick(country.code)">
+        <VButton @click="handleCountryClick(country.code)">
           {{ country.label }}
-        </button>
+        </VButton>
       </li>
     </ul>
     <div class="user-info" v-if="isLoading">
@@ -95,18 +95,6 @@ h1 {
   font-size: 2rem;
   text-align: center;
   margin-block: 4rem;
-}
-
-button {
-  border: 1px #000 solid;
-  padding: 0.5rem;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #000;
-  color: #fff;
 }
 
 .country-list {
