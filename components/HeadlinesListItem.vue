@@ -34,6 +34,7 @@ a:hover .headline__title {
 }
 
 .headline__detail-group {
+  color: #666;
   margin-top: 0.25rem;
   font-size: 0.75rem;
 }
