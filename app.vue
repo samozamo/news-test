@@ -48,7 +48,7 @@ const countries = [
 ];
 
 const isLoading = ref(false);
-const data = ref<TopHeadlinesResponse | null>(null);
+const data = ref<TopHeadlinesData | null>(null);
 const error = ref<string | null>(null);
 
 const handleCountryClick = async (code: string) => {

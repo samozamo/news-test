@@ -1,4 +1,4 @@
-interface TopHeadlinesResponse {
+interface TopHeadlinesData {
   status: string;
   totalResults: number;
   articles: Article[];
@@ -20,7 +20,7 @@ interface Source {
 type HeadlineResponse =
   | {
       success: true;
-      data: TopHeadlinesResponse;
+      data: TopHeadlinesData;
     }
   | {
       success: false;
